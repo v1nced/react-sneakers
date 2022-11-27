@@ -1,125 +1,45 @@
+import Card from './components/Card'
+import Header from './components/Header'
+import Overlay from './components/Overlay'
+
+const arr = [
+	{
+		price: '12 999',
+		title: 'Мужские Кроссовки Nike Blazer Mid Suede',
+		url: '/img/sneakers/1.jpg',
+	},
+	{
+		price: '12 999',
+		title: 'Мужские Кроссовки Nike Blazer Mid Suede',
+		url: '/img/sneakers/2.jpg',
+	},
+	{
+		price: '14 399',
+		title: 'Мужские Кроссовки Nike Mid Suede',
+		url: '/img/sneakers/3.jpg',
+	},
+]
+
 function App() {
 	return (
 		<div className='App'>
-			<header>
-				<div className='header__left'>
-					<img src='/img/logo.png' alt='' />
-					<div>
-						<h2>React sneakers</h2>
-						<p>Магазин лучших кроссовок</p>
+			<Overlay />
+
+			<Header />
+
+			<div className='content'>
+				<div className='content__header'>
+					<h1>Все кроссовки</h1>
+					<div className='search-block'>
+						<img src='/img/search.svg' alt='Search' />
+						<input type='text' placeholder='Поиск... ' />
 					</div>
 				</div>
-				<ul className='header__right'>
-					<li>
-						<img src='/img/cart.svg' alt='' />
-						<span>12500 тенге</span>
-					</li>
-					<li>
-						<img src='/img/heart.svg' alt='' />
-					</li>
-					<li>
-						<img src='/img/user.svg' alt='' />
-					</li>
-				</ul>
-			</header>
-			<div className='content'>
-				<h1>Все кроссовки</h1>
+
 				<div className='items'>
-					<div className='card'>
-						<img
-							className='sneaker'
-							width={133}
-							height={113}
-							src='/img/sneakers/1.jpg'
-							alt=''
-						/>
-						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className='card__bottom'>
-							<div>
-								<span>Цена:</span>
-								<b>12 999 тенге</b>
-							</div>
-							<button>
-								<img src='/img/plus.svg' alt='' />
-							</button>
-						</div>
-					</div>
-					<div className='card'>
-						<img
-							className='sneaker'
-							width={133}
-							height={113}
-							src='/img/sneakers/2.jpg'
-							alt=''
-						/>
-						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className='card__bottom'>
-							<div>
-								<span>Цена:</span>
-								<b>12 999 тенге</b>
-							</div>
-							<button>
-								<img src='/img/plus.svg' alt='' />
-							</button>
-						</div>
-					</div>
-					<div className='card'>
-						<img
-							className='sneaker'
-							width={133}
-							height={113}
-							src='/img/sneakers/3.jpg'
-							alt=''
-						/>
-						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className='card__bottom'>
-							<div>
-								<span>Цена:</span>
-								<b>12 999 тенге</b>
-							</div>
-							<button>
-								<img src='/img/plus.svg' alt='' />
-							</button>
-						</div>
-					</div>
-					<div className='card'>
-						<img
-							className='sneaker'
-							width={133}
-							height={113}
-							src='/img/sneakers/4.jpg'
-							alt=''
-						/>
-						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className='card__bottom'>
-							<div>
-								<span>Цена:</span>
-								<b>12 999 тенге</b>
-							</div>
-							<button>
-								<img src='/img/plus.svg' alt='' />
-							</button>
-						</div>
-					</div>
-					<div className='card'>
-						<img
-							className='sneaker'
-							width={133}
-							height={113}
-							src='/img/sneakers/5.jpg'
-							alt=''
-						/>
-						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-						<div className='card__bottom'>
-							<div>
-								<span>Цена:</span>
-								<b>12 999 тенге</b>
-							</div>
-							<button>
-								<img src='/img/plus.svg' alt='' />
-							</button>
-						</div>
-					</div>
+					{arr.map(val => (
+						<Card price={val.price} title={val.title} url={val.url} />
+					))}
 				</div>
 			</div>
 		</div>
